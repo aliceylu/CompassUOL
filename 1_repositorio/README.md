@@ -48,7 +48,7 @@ Comando importante quando se está trabalhando em um repositório compartilhado,
 ### 7. git clone
 Baixa  um repositório de servidores remotos.
 
-### 8. git rm
+### 8. git rm 
 Deleta arquivos da monitorização do git. Ele não terá mais atualizações consideradas pelo git, somente se forem adicionadas e commitadas novamente.  
 
 ### 9. git log
@@ -72,18 +72,19 @@ Log resumido do projeto.
 ## BRANCHES
 É a forma que o git separa as versões do projeto, que geralmente se inicia na main. Normalmente novas features ficam em uma branch separada. Após as alterações serem finalizadas, os branches são unidos para o código fonte.  
 
-```git branch (visualizar branches disponíveis)
-git branch <nome> (criar uma branch)
-```  
+```git branch (visualizar branches disponíveis)```   
+```git branch nome_nova_branch (criar uma branch)```  
 
 ### 1. git checkout 
-Mudar para outra branch.  
-```git checkout -b <nome_nova_branch> (criar e mudar de branch)
-```  
+Mudar para outra branch.   
+
+Para criar e logo em seguida mudar para essa nova branch:
+
+```git checkout -b nome_nova_branch```    
 
 ### 2. git merge
-```git merge <nome>
-```
+```git merge nome```      
+
 Unir o código de dois branches distintos. Normalmente é por meio dele que recebemos atualizações de outros desenvolvedores do projeto.
 
 ### 3. git stash
@@ -95,8 +96,7 @@ git stash apply <número_da_stash>
 git stash show -p <nº> (mostrar modificações realizadas)
 ```
 ### 4. git tag 
-```git tag -a <nome> -m "<mensagem>"
-```
+```git tag -a "nome_tag" -m "mensagem"```   
 Serve como checkpoint de um branch. Demarca estágios do desenvolvimento.
 
 ### 5. git push (tags)
