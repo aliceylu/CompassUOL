@@ -3,7 +3,7 @@
 -- CAST (quando '::' não funcionar)
 
 -- EXEMPLOS ########################################################################
-
+ 
 -- (Exemplo 1) Conversão de texto em data
 -- Corrija a query abaixo utilizando o operador ::
 select '2021-10-01' - '2021-02-01'

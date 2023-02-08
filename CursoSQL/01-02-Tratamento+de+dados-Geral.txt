@@ -1,5 +1,5 @@
 -- TIPOS ###########################################################################
--- CASE WHEN
+-- CASE WHEN 
 -- COALESCE() verifica qual o primeiro campo não nulo de uma lista de valores.
 
 
