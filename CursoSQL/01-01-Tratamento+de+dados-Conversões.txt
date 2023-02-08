@@ -1,7 +1,7 @@
 -- TIPOS DE CONVERSÃO ##############################################################
 -- Operador ::
 -- CAST (quando '::' não funcionar)
-
+ 
 -- EXEMPLOS ########################################################################
  
 -- (Exemplo 1) Conversão de texto em data
