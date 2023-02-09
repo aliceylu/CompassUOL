@@ -1,8 +1,8 @@
 -- TIPOS ###########################################################################
--- CASE WHEN 
+-- CASE WHEN
 -- COALESCE() verifica qual o primeiro campo não nulo de uma lista de valores.
 
- 
+
 -- EXEMPLOS ########################################################################
 
 -- (Exemplo 1) Agrupamento de dados com CASE WHEN
