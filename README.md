@@ -1,4 +1,4 @@
-﻿#  Alice Young Lu
+﻿#  Alice Young Lu (SQUAD 05 - Azimute)
  
 
 27 anos, formada e atualmente trabalhando como tecnóloga em radiologia, nascida e residente na cidade de Ponta Grossa/PR.   
