@@ -1,0 +1,19 @@
+caminho = 'actors.csv'
+with open(caminho, 'r') as arquivo:
+    lista = []
+    for index, line in enumerate(arquivo):
+        if line.strip().startswith('"'):
+            line = line.replace(',', '', 1)
+            line = line.replace('"', '', 2)
+        line = line.strip()
+        lista.append(line.split(','))
+
+totfilmes = 0
+
+for i, filme in enumerate(lista):
+    if i > 0:
+        totfilmes += float(filme[2])
+
+media = totfilmes / (len(lista) - 1)
+
+print(media)

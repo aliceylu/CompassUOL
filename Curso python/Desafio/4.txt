@@ -1,0 +1,25 @@
+caminho = 'actors.csv'
+with open(caminho, 'r') as arquivo:
+    lista = []
+    for index, line in enumerate(arquivo):
+        if line.strip().startswith('"'):
+            line = line.replace(',', '', 1)
+            line = line.replace('"', '', 2)
+        line = line.strip()
+        lista.append(line.split(','))
+
+listafilmes = []
+quantidade = []
+
+for p in lista[1:]:
+    listafilmes.append(p[4])
+
+for i in listafilmes:
+    quantidade.append(listafilmes.count(i))
+
+filmdict = dict(zip(listafilmes, quantidade))
+max_value = max(filmdict, key=filmdict.get)
+key = max(filmdict.values())
+print(max_value, key)
+
+

@@ -1,0 +1,14 @@
+caminho = 'actors.csv'
+with open(caminho, 'r') as arquivo:
+    lista = []
+    for index, line in enumerate(arquivo):
+        if index > 0:
+            if line.strip().startswith('"'):
+                line = line.replace(',', '', 1)
+                line = line.replace('"', '', 2)
+            line = line.strip()
+            lista.append(line.split(','))
+
+
+for row in sorted(lista, key = lambda x: float(x[5]), reverse=True):
+    print(row)

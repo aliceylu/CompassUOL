@@ -1,0 +1,19 @@
+caminho = 'actors.csv'
+with open(caminho, 'r') as arquivo:
+    lista = []
+    for index, line in enumerate(arquivo):
+        if line.strip().startswith('"'):
+            line = line.replace(',', '', 1)
+            line = line.replace('"', '', 2)
+        line = line.strip()
+        lista.append(line.split(','))
+
+maior = 0
+for filme in lista[1:]:
+    filme_convertido = int(filme[2])
+    if filme_convertido > maior:
+        maior = filme_convertido
+
+for p in lista[1:]:
+    if int(p[2]) == maior:
+        print(p[0], maior)
