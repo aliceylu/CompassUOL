@@ -1,0 +1,11 @@
+Sim, é possível. Com o comando
+
+docker start [OPÇÕES] <container id> 
+
+Opções suportadas:
+
+--attach , -a
+--checkpoint
+--checkpoint-dir
+--detach-keys
+--interactive , -i

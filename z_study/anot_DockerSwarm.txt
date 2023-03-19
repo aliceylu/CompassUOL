@@ -1,0 +1,24 @@
+DOCKER SWARM
+
+Orquestração é o ato de conseguir gerenciar e escalar os containers da aplicação.
+Temos um serviço que rege sobre outros serviços, verificando se os mesmos estão funcionando como deveriam.
+Garante uma aplicação saudável e também que esteja sempre disponível.
+Serviços: Docker Swarm, Kubernets e Apache Mesos.
+
+Swarm permite escalar horizontalmente nossos projetos. CLUSTER.
+
+-------------------
+docker swarm init / --advertise-addr (IP)
+
+docker node ls  # verificar quais Nodes estão ativos, monitorar o que o swarm está orquestrando, escalar réplicas
+
+-------------------
+Adicionar novos nodes para duas máquinas estarem conectadas. A nova máquina entra na hierarquia como Worker.
+Todas as ações (Tasks) utilizadas na Manager, serão replicadas em Nodes que forem adicionados com join.
+
+docker swarm join --token <TOKEN><IP>:<PORTA>
+
+-------------------
+Iniciar um serviço. Um container novo será adicionado ao manager, sendo gerenciado pelo Swarm.
+
+docker service create --name <nome> <imagem>

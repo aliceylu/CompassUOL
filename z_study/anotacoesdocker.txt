@@ -1,0 +1,111 @@
+GLOSSÁRIO
+
+docker run -d nginx (para rodar no background, sem ocupar terminal)
+-d detached
+-f follow
+-p expor porta
+docker ps -a verificar todos os containers já usados pela máquina
+
+docker run nginx (rodar)
+
+docker ps (consultar dockers abertos)
+
+docker stop name_docker ou cointainer_id
+
+RUN sempre cria um novo container
+
+docker start<id> - voltar a rodar um container
+
+--name (flag para selecionar nome do container)
+    ex.: docker run -d -p 80:80 --name nginx_app nginx
+
+docker logs nginx_app (acessar logs de inicialização, acesso e erros)
+
+docker -rm <id> (dica: somente os 3ºs) /remover um container da máquina.
+docker -rm <nome> -f
+    caso ainda esteja rodando, podemos utilizar a flag -f (force)
+    o container removido não será mais listado no docker ps -a
+
+docker build .  / para o docker atualizar o código
+
+docker build -t meunode_diferente:minhatag_diferente
+
+docker start -it <container>   / a flag -it pode ser utilizada com o comando start também. Não precisamos criar um novo container para utiliza-lo no terminal.
+
+docker rmi <imagem>  / imagens que estão sendo utilizadas por um container, apresentarão um erro no terminal. flag -f para forçar a remoção.
+
+docker run --rm <container>  / container deletado automaticamente após sua utilização
+
+docker cp cont_origem:/app/nome_arq.js ./pasta_destino/    / realizar cópia de arquivos
+
+docker top <container>  / acesso a quando foi iniciado, id do processo, descrição do comando CMD
+
+docker inspect <container>  / entender como o container está configurado. id, data de criação, imagem, etc.
+
+docker stats  / processos que estão sendo executados em um container. Acesso ao andamento do processamento e memória gasta pelo mesmo.
+
+docker volume ls  // acesso aos anonymous e named volumes
+
+docker volume inspect nome  // acesso ao local em que o volume guarda dados, nome, escopo e etc.
+
+docker volume rm <nome>  // remover um volume. seus dados serão removidos tbm.
+
+docker volume prune  // remover todos os volumes que não estão sendo utilizados
+
+docker run -v volume:/data:ro  // criar volume que tem apenas permissão de leitura (ro = read only)
+
+
+
+
+
+
+----------
+Os containers de docker não tem conexão com nada de fora deles,
+por isso precisamos expor portas, a flag é a -p e podemos fazer assim:
+-p 80:80; (1º porta do PC e 2º porta receber do container) (geralmente é a porta padrão para acesso web)
+Desta maneira o container estará acessível na porta 80.
+
+----------
+Para enviar uma atualização vamos primeiramente fazer o build.
+Trocando a tag da imagem para a versão atualizada.
+Depois vamos fazer um push novamente para o repositório.
+Assim todas as versões estarão disponíveis para serem utilizadas.
+
+-----------
+Se criarmos um container com alguma imagem, todos os arquivos que geramos dentro dele serão do container.
+Quando o container for removido, perderemos estes arquivos. Por isso precisamos dos volumes.
+
+-----------
+
+
+VOLUMES
+
+
+-----------
+Podemos criar um volume anônimo com docker run -v /data (nome aleatorio)
+Onde /data será o diretório que contém o volume anônimo e este container estará atrelado a ele
+Com o comando docker volume ls podemos verificar todos os volumes do nosso ambiente
+
+-----------
+Volumes nomeados:
+docker run-v nomedovolume:/data
+Agora o volume tem um nome e pode ser facilmente referenciado.
+Em docker volume ls podemos verificar o container nomeado criado.
+Da mesma maneira que o anônimo, este volume tem como função armazenar arquivos.
+Exemplo: docker run -d -p 80:80 --name phpmessages_container -v phpvolume:/var/www/html/messages --rm phpmessages
+
+-----------
+BIND MOUNT também é um volume, porém ele fica em um diretório que nós especificamos.
+Então não criamos um volume e sim apontamos um diretório.
+O comando será: docker run /dir/data:/data
+Desta maneira o diretório /dir/data no nosso computador, será o volume deste container
+EXEMPLO: docker run -d -p 80:80 --name phpmessages_container -v H:\caminho_arquivo\arquivos\2_volumes\messages:/var/www/html/messages --rm phpmessages
+Podemos utilizar para atualizar em tempo real o projeto, sem ter que refazer o build a cada atualização do mesmo.
+Exemplo: docker run -d -p 80:80 --name phpmessages_container -v H:\caminho_arquivo\arquivos\2_volumes:/var/www/html/ --rm phpmessages
+
+-----------
+Criar manualmente um volume:
+docker volume create <nome>
+Desta maneira temos um named volume criado, podemos atrelar a algum container na execução do mesmo.
+
+-----------
