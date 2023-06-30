@@ -1,12 +1,5 @@
 # DESAFIO - PROPOSTA
 
-## Tema: Ação/Aventura
-
-Para o desafio proposto, serão utilizados as duas principais franquias de filmes do ator Keanu Reeves, sendo elas Matrix e John Wick. Cada um dos 8 filmes será analisado individualmente. 
-Primeiramente, será realizado um comparativo com os 5 filmes de ação e aventura mais famosos lançados nos anos correspondentes aos da base. Serão comparados os quesitos: orçamento versus bilheteria.
-Em um segundo momento, os dados recebidos serão analisados em busca de um padrão de atores/atrizes nos filmes que fizeram sucesso.
-E por fim, será analisado a popularidade do ator Keanu Reeves com o passar dos anos, analisando a bilheteria de todos os seus filmes e a participação do mesmo em filmes onde ele não era o ator principal.
-
 ------------------------------------------------
 Endpoints utilizados:
 
